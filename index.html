@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CleanPoint | Profesjonalne usługi sprzątające</title>
+
+    <style>
+        :root {
+            --black: #111111;
+            --gold: #d4a63a;
+            --gold-dark: #a87917;
+            --gold-light: #f5e5b5;
+            --white: #ffffff;
+            --cream: #fffdf8;
+            --text: #171717;
+            --gray: #6f6b63;
+            --border: #eadfc7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255,255,255,.97);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            min-height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        /* ZŁOTA GWIAZDKA */
+
+        .brand-star {
+            width: 47px;
+            height: 47px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold);
+            font-size: 43px;
+            line-height: 1;
+
+            text-shadow:
+                0 2px 8px rgba(212,166,58,.25);
+        }
+
+        .brand-name {
+            font-size: 29px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .brand-name span {
+            color: var(--gold-dark);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            color: #45413a;
+            font-size: 15px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        nav a:hover {
+            color: var(--gold-dark);
+        }
+
+        .nav-button {
+            padding: 13px 21px;
+            border-radius: 8px;
+
+            background: var(--black);
+            color: white !important;
+        }
+
+        .nav-button:hover {
+            background: var(--gold-dark);
+        }
+
+        .menu {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 680px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(212,166,58,.18),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #ffffff 55%,
+                    #fff9e9 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -280px;
+            top: -290px;
+
+            border: 2px solid rgba(212,166,58,.16);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            right: -220px;
+            bottom: -270px;
+
+            border: 2px solid rgba(212,166,58,.13);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 780px;
+            padding: 80px 0;
+        }
+
+        .label {
+            display: inline-block;
+
+            padding: 10px 18px;
+            margin-bottom: 25px;
+
+            border-radius: 50px;
+
+            background: #fff3d2;
+            color: var(--gold-dark);
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: .98;
+            letter-spacing: -4px;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-dark);
+        }
+
+        .hero-text {
+            max-width: 700px;
+
+            color: var(--gray);
+
+            font-size: 19px;
+            line-height: 1.7;
+
+            margin-bottom: 38px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 16px 25px;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            transition: .25s;
+        }
+
+        .button-black {
+            background: var(--black);
+            color: white;
+
+            box-shadow: 0 15px 30px rgba(0,0,0,.13);
+        }
+
+        .button-black:hover {
+            background: var(--gold-dark);
+            transform: translateY(-3px);
+        }
+
+        .button-white {
+            background: white;
+            color: var(--black);
+
+            border: 1px solid #d8c28e;
+        }
+
+        .button-white:hover {
+            background: #fff8e6;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           GWIAZDKA W HERO
+        ========================= */
+
+        .hero-star {
+            position: absolute;
+
+            right: 12%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            z-index: 1;
+
+            width: 330px;
+            height: 330px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #eadfc7;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.9);
+
+            box-shadow:
+                0 30px 80px rgba(83,62,20,.10);
+        }
+
+        .hero-star::before {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            border: 1px solid #f0e5cc;
+            border-radius: 50%;
+        }
+
+        .big-star {
+            position: relative;
+            z-index: 2;
+
+            color: var(--gold);
+
+            font-size: 190px;
+            line-height: 1;
+
+            text-shadow:
+                0 8px 25px rgba(168,121,23,.20);
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            background: var(--black);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .stat {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            border-right: 1px solid rgba(255,255,255,.12);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+
+            color: var(--gold-light);
+
+            font-size: 25px;
+
+            margin-bottom: 6px;
+        }
+
+        .stat span {
+            color: #bdb7ac;
+            font-size: 13px;
+        }
+
+        /* =========================
+           SEKCJE
+        ========================= */
+
+        .section {
+            padding: 105px 0;
+        }
+
+        .section-title {
+            max-width: 720px;
+            margin-bottom: 50px;
+        }
+
+        .small-title {
+            color: var(--gold-dark);
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            margin-bottom: 13px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(36px,5vw,56px);
+
+            line-height: 1.05;
+            letter-spacing: -2px;
+
+            margin-bottom: 17px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           USŁUGI
+        ========================= */
+
+        .services {
+            background: #fffdf9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+        }
+
+        .service {
+            position: relative;
+
+            padding: 31px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: 19px;
+
+            transition: .3s;
+        }
+
+        .service:hover {
+            transform: translateY(-8px);
+
+            border-color: #d4b15d;
+
+            box-shadow:
+                0 25px 55px rgba(64,48,20,.10);
+        }
+
+        .service-number {
+            position: absolute;
+
+            top: 22px;
+            right: 25px;
+
+            color: #cdbb96;
+
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .service-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 21px;
+
+            background: #fff4d9;
+
+            border-radius: 15px;
+
+            color: var(--gold-dark);
+
+            font-size: 25px;
+        }
+
+        .service h3 {
+            font-size: 19px;
+            line-height: 1.3;
+
+            margin-bottom: 18px;
+        }
+
+        .service ul {
+            list-style: none;
+        }
+
+        .service li {
+            position: relative;
+
+            padding-left: 23px;
+            margin-bottom: 10px;
+
+            color: var(--gray);
+
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .service li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+
+            color: var(--gold-dark);
+
+            font-weight: 900;
+        }
+
+        /* =========================
+           O NAS
+        ========================= */
+
+        .about {
+            background: #fff9e9;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 75px;
+
+            align-items: center;
+        }
+
+        .about-card {
+            position: relative;
+
+            padding: 50px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 30px 70px rgba(83,62,20,.10);
+        }
+
+        .about-star {
+            color: var(--gold);
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+            text-shadow:
+                0 5px 15px rgba(168,121,23,.20);
+        }
+
+        .about-card h3 {
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+        .about-card h3 span {
+            color: var(--gold-dark);
+        }
+
+        .about-card p {
+            color: var(--gray);
+
+            line-height: 1.7;
+
+            font-size: 15px;
+        }
+
+        .advantages {
+            display: grid;
+            gap: 24px;
+        }
+
+        .advantage {
+            display: flex;
+            gap: 17px;
+        }
+
+        .advantage-icon {
+            flex-shrink: 0;
+
+            width: 49px;
+            height: 49px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            color: var(--gold-dark);
+
+            font-weight: 900;
+        }
+
+        .advantage h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .advantage p {
+            color: var(--gray);
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           KONTAKT
+        ========================= */
+
+        .contact {
+            background: #fff;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+
+            gap: 50px;
+
+            padding: 60px;
+
+            background: var(--black);
+
+            color: white;
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .contact-box::after {
+            content: "★";
+
+            position: absolute;
+
+            right: -45px;
+            bottom: -80px;
+
+            color: rgba(212,166,58,.08);
+
+            font-size: 330px;
+        }
+
+        .contact-box h2 {
+            max-width: 700px;
+
+            font-size: clamp(36px,5vw,55px);
+
+            line-height: 1.05;
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-box > div > p {
+            max-width: 650px;
+
+            color: #c9c0b3;
+
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 13px;
+
+            align-content: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            padding: 18px 20px;
+
+            background: rgba(255,255,255,.06);
+
+            border: 1px solid rgba(223,186,101,.25);
+
+            border-radius: 12px;
+
+            transition: .25s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,.10);
+
+            border-color: var(--gold);
+        }
+
+        .contact-item small {
+            display: block;
+
+            color: var(--gold-light);
+
+            margin-bottom: 5px;
+        }
+
+        .contact-item strong {
+            color: white;
+            font-size: 15px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #090806;
+
+            color: white;
+
+            padding: 35px 0;
+        }
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 5px;
+        }
+
+        .footer-star {
+            color: var(--gold);
+            font-size: 26px;
+        }
+
+        .footer-name {
+            color: var(--gold-light);
+
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        footer p {
+            color: #8f887e;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .hero-star {
+                right: -80px;
+                opacity: .5;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                min-height: 72px;
+            }
+
+            .brand-name {
+                font-size: 25px;
+            }
+
+            .brand-star {
+                font-size: 36px;
+                width: 38px;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            nav {
+                display: none;
+
+                position: absolute;
+
+                top: 72px;
+                left: 0;
+                right: 0;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0;
+
+                padding: 12px 5%;
+
+                background: white;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 13px 0;
+            }
+
+            .nav-button {
+                text-align: center;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero-content {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 47px;
+                letter-spacing: -2px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .hero-star {
+                width: 250px;
+                height: 250px;
+
+                right: -100px;
+
+                top: 70%;
+            }
+
+            .big-star {
+                font-size: 135px;
+            }
+
+            .hero-star::before {
+                width: 200px;
+                height: 200px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: 0;
+
+                border-bottom: 1px solid rgba(255,255,255,.12);
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 35px;
+            }
+
+            .contact-box {
+                padding: 35px 25px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="#home" class="brand">
+
+                <div class="brand-star">
+                    ★
+                </div>
+
+                <div class="brand-name">
+                    Clean<span>Point</span>
+                </div>
+
+            </a>
+
+
+            <button class="menu" id="menuButton">
+                ☰
+            </button>
+
+
+            <nav id="nav">
+
+                <a href="#home">
+                    Strona główna
+                </a>
+
+                <a href="#uslugi">
+                    Usługi
+                </a>
+
+                <a href="#o-nas">
+                    O nas
+                </a>
+
+                <a href="#kontakt">
+                    Kontakt
+                </a>
+
+                <a href="#kontakt" class="nav-button">
+                    Skontaktuj się
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="label">
+                    PROFESJONALNE USŁUGI CZYSZCZĄCE
+                </div>
+
+                <h1>
+                    Czyste przestrzenie.
+                    <br>
+                    <span>Lepsze jutro.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Kompleksowe sprzątanie po budowie i remoncie,
+                    mycie okien, podłóg oraz profesjonalne
+                    czyszczenie obiektów mieszkalnych i użytkowych.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#uslugi" class="button button-black">
+                        Zobacz nasze usługi →
+                    </a>
+
+                    <a href="#kontakt" class="button button-white">
+                        Skontaktuj się
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DUŻA ZŁOTA GWIAZDKA -->
+
+        <div class="hero-star">
+
+            <div class="big-star">
+                ★
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATYSTYKI
+    ========================= -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>Profesjonalnego podejścia</span>
+            </div>
+
+            <div class="stat">
+                <strong>6</strong>
+                <span>Głównych zakresów usług</span>
+            </div>
+
+            <div class="stat">
+                <strong>CleanPoint</strong>
+                <span>Czystość to nasza specjalność</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         USŁUGI
+    ========================= -->
+
+    <section class="section services" id="uslugi">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    CleanPoint
+                </div>
+
+                <h2>
+                    Zakres naszych usług
+                </h2>
+
+                <p>
+                    Kompleksowe rozwiązania dopasowane do potrzeb
+                    mieszkań, domów, inwestycji oraz obiektów użytkowych.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <div class="service">
+
+                    <div class="service-number">01</div>
+
+                    <div class="service-icon">🧹</div>
+
+                    <h3>
+                        Sprzątanie po budowie i remoncie
+                    </h3>
+
+                    <ul>
+                        <li>Usuwanie pyłu budowlanego i kurzu</li>
+                        <li>Usuwanie folii, taśm i pozostałości materiałów</li>
+                        <li>Odkurzanie wszystkich powierzchni</li>
+                        <li>Mycie i doczyszczanie podłóg</li>
+                        <li>Czyszczenie drzwi, ościeżnic i parapetów</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">02</div>
+
+                    <div class="service-icon">🪟</div>
+
+                    <h3>
+                        Mycie okien i przeszkleń
+                    </h3>
+
+                    <ul>
+                        <li>Mycie szyb z obu stron</li>
+                        <li>Czyszczenie ram i parapetów</li>
+                        <li>Mycie drzwi balkonowych i tarasowych</li>
+                        <li>Czyszczenie przeszkleń i witryn</li>
+                        <li>Czyszczenie dużych okien</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">03</div>
+
+                    <div class="service-icon">🏢</div>
+
+                    <h3>
+                        Sprzątanie części wspólnych budynków
+                    </h3>
+
+                    <ul>
+                        <li>Klatki schodowe i korytarze</li>
+                        <li>Hole wejściowe i wiatrołapy</li>
+                        <li>Windy i pomieszczenia wspólne</li>
+                        <li>Garaże podziemne</li>
+                        <li>Pomieszczenia techniczne</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">04</div>
+
+                    <div class="service-icon">🧽</div>
+
+                    <h3>
+                        Maszynowe mycie i doczyszczanie podłóg
+                    </h3>
+
+                    <ul>
+                        <li>Mycie posadzek maszyną</li>
+                        <li>Usuwanie pyłu i osadów pobudowlanych</li>
+                        <li>Doczyszczanie płytek i gresu</li>
+                        <li>Czyszczenie dużych powierzchni handlowych</li>
+                        <li>Czyszczenie powierzchni użytkowych</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">05</div>
+
+                    <div class="service-icon">🏠</div>
+
+                    <h3>
+                        Sprzątanie przed odbiorem lokali
+                    </h3>
+
+                    <ul>
+                        <li>Kompleksowe sprzątanie mieszkań i domów</li>
+                        <li>Przygotowanie lokali do odbioru technicznego</li>
+                        <li>Sprzątanie po poprawkach wykonawczych</li>
+                        <li>Doczyszczanie po ekipach wykończeniowych</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">06</div>
+
+                    <div class="service-icon">🌿</div>
+
+                    <h3>
+                        Czyszczenie terenów zewnętrznych
+                    </h3>
+
+                    <ul>
+                        <li>Mycie kostki brukowej</li>
+                        <li>Czyszczenie wejść i chodników</li>
+                        <li>Doczyszczanie tarasów</li>
+                        <li>Czyszczenie powierzchni zewnętrznych</li>
+                        <li>Usuwanie zabrudzeń po pracach budowlanych</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         O NAS
+    ========================= -->
+
+    <section class="section about" id="o-nas">
+
+        <div class="container about-grid">
+
+
+            <div class="about-card">
+
+                <div class="about-star">
+                    ★
+                </div>
+
+                <h3>
+                    Clean<span>Point</span>
+                </h3>
+
+                <p>
+                    Profesjonalne usługi sprzątające stworzone
+                    z myślą o osobach prywatnych, firmach,
+                    inwestorach oraz zarządcach nieruchomości.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="section-title">
+
+                    <div class="small-title">
+                        Dlaczego CleanPoint?
+                    </div>
+
+                    <h2>
+                        Dbamy o każdy szczegół.
+                    </h2>
+
+                    <p>
+                        Naszym celem jest oddanie każdej przestrzeni
+                        w stanie, z którego można być naprawdę zadowolonym.
+                    </p>
+
+                </div>
+
+
+                <div class="advantages">
+
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <h4>Dokładność</h4>
+
+                            <p>
+                                Zwracamy uwagę na detale
+                                i trudno dostępne miejsca.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+                            ⚙
+                        </div>
+
+                        <div>
+                            <h4>Profesjonalny sprzęt</h4>
+
+                            <p>
+                                Dobieramy odpowiednie metody
+                                i sprzęt do rodzaju powierzchni.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+                            ⏱
+                        </div>
+
+                        <div>
+                            <h4>Terminowość</h4>
+
+                            <p>
+                                Szanujemy Twój czas
+                                i ustalone terminy realizacji.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+                            ♻
+                        </div>
+
+                        <div>
+                            <h4>Odpowiedzialne podejście</h4>
+
+                            <p>
+                                Dbamy o powierzchnie
+                                i dobieramy odpowiednie środki.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         KONTAKT
+    ========================= -->
+
+    <section class="section contact" id="kontakt">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <div>
+
+                    <div
+                        class="small-title"
+                        style="color:#e8c875;"
+                    >
+                        Kontakt
+                    </div>
+
+                    <h2>
+                        Potrzebujesz profesjonalnego sprzątania?
+                    </h2>
+
+                    <p>
+                        Skontaktuj się z nami i opowiedz,
+                        czego potrzebujesz. Przygotujemy
+                        rozwiązanie dopasowane do Twojego obiektu.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-info">
+
+                    <a
+                        href="tel:+48123456789"
+                        class="contact-item"
+                    >
+                        <small>Telefon</small>
+                        <strong>+48 791 172 120</strong>
+                    </a>
+
+
+                    <a
+                        href="mailto:kontakt@cleanpoint.pl"
+                        class="contact-item"
+                    >
+                        <small>E-mail</small>
+                        <strong> cleanpoint.biuro@gmail.com </strong>
+                    </a>
+
+
+                    <div class="contact-item">
+                        <small>Godziny kontaktu</small>
+                        <strong>Pon. – Pt. 7:00 – 18:00</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="footer-brand">
+
+                    <div class="footer-star">
+                        ★
+                    </div>
+
+                    <div class="footer-name">
+                        CleanPoint
+                    </div>
+
+                </div>
+
+                <p>
+                    Profesjonalne sprzątanie.
+                    Czystość, której możesz zaufać.
+                </p>
+
+            </div>
+
+
+            <p>
+                © <span id="year"></span>
+                CleanPoint. Wszystkie prawa zastrzeżone.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const nav =
+            document.getElementById("nav");
+
+
+        menuButton.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+
+
+        document.querySelectorAll("nav a").forEach(link => {
+
+            link.addEventListener("click", () => {
+                nav.classList.remove("active");
+            });
+
+        });
+
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
